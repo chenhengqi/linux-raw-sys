@@ -95,7 +95,7 @@ struct sockaddr {
 #include <linux/joystick.h>
 #include <linux/kd.h>
 #include <linux/kcov.h>
-#if !defined(__arm__) && !defined(__powerpc64__) && !defined(__riscv) // various errors
+#if !defined(__arm__) && !defined(__loongarch__) && !defined(__powerpc64__) && !defined(__riscv) // various errors
 #include <linux/kvm.h>
 #endif
 #include <linux/lirc.h>
@@ -493,7 +493,7 @@ void list(void) {
     IOCTL_REQUEST(ENI_SETMULT);
     IOCTL_REQUEST(RIO_GET_EVENT_MASK);
     IOCTL_REQUEST(LIRC_GET_MAX_TIMEOUT);
-#if !defined(__arm__) && !defined(__powerpc64__) && !defined(__riscv)
+#if !defined(__arm__) && !defined(__loongarch__) && !defined(__powerpc64__) && !defined(__riscv)
 #if 0 // needs `struct kvm_cpuid2`
     IOCTL_REQUEST(KVM_GET_SUPPORTED_CPUID);
 #endif
@@ -1037,7 +1037,9 @@ void list(void) {
     IOCTL_REQUEST(NVME_IOCTL_ADMIN64_CMD);
     IOCTL_REQUEST(VHOST_SET_OWNER);
     IOCTL_REQUEST(RIO_ALLOC_DMA);
+#if !defined(__loongarch__)
     IOCTL_REQUEST(F2FS_IOC_ABORT_VOLATILE_WRITE);
+#endif
     IOCTL_REQUEST(RIO_CM_CHAN_ACCEPT);
     IOCTL_REQUEST(I2OHRTGET);
     IOCTL_REQUEST(ATM_SETCIRANGE);

@@ -23,6 +23,9 @@ i686-linux-gnu-gcc main.c list.o -o main.exe $cflags
 x86_64-linux-gnu-gcc -Iinclude -c list.c $cflags
 x86_64-linux-gnu-gcc main.c list.o -o main.exe $cflags
 ./main.exe >> "$out"
+loongarch64-linux-gnu-gcc -Iinclude -c list.c $cflags
+loongarch64-linux-gnu-gcc main.c list.o -o main.exe $cflags
+./main.exe >> "$out"
 aarch64-linux-gnu-gcc -Iinclude -c list.c $cflags
 aarch64-linux-gnu-gcc main.c list.o -o main.exe $cflags
 qemu-aarch64 -L /usr/aarch64-linux-gnu ./main.exe >> "$out"

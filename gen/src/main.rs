@@ -272,6 +272,7 @@ fn rust_arches(linux_arch: &str) -> &[&str] {
         "avr32" => &["avr"],
         // hexagon gets build errors; disable it for now
         "hexagon" => &[],
+        "loongarch" => &["loongarch64"],
         "mips" => &["mips", "mips64"],
         "powerpc" => &["powerpc", "powerpc64"],
         "riscv" => &["riscv32", "riscv64"],
